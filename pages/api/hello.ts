@@ -6,10 +6,7 @@ type Data = {
   message?: string;
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   if (req.method !== "POST") {
     return res.status(405).end();
   }
@@ -21,5 +18,8 @@ export default async function handler(
   const sleepTime = req.body.sleepTime;
   await new Promise((r) => setTimeout(r, sleepTime));
   console.log("given enough eyeballs, all bugs are shallow");
-  return res.status(200).json({ success: true });
+  res.status(200).json({ success: true });
+  return;
 }
+
+export default handler;
