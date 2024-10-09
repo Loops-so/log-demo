@@ -10,16 +10,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   if (req.method !== "POST") {
     return res.status(405).end();
   }
-  if (!req.body.sleepTime || typeof req.body.sleepTime !== "number") {
-    return res
-      .status(400)
-      .json({ success: false, message: "Please supply sleepTime as a number" });
-  }
-  const sleepTime = req.body.sleepTime;
-  await new Promise((r) => setTimeout(r, sleepTime));
   console.log("given enough eyeballs, all bugs are shallow");
-  console.log("wut");
-  console.log("ada");
+  console.log("line 2");
+  console.log("line 3");
   res.status(200).json({ success: true });
   return;
 }
