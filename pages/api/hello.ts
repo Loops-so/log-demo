@@ -18,6 +18,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   const sleepTime = req.body.sleepTime;
   await new Promise((r) => setTimeout(r, sleepTime));
   console.log("given enough eyeballs, all bugs are shallow");
+  console.log("wut");
+  console.log("ada");
   res.status(200).json({ success: true });
   return;
 }
